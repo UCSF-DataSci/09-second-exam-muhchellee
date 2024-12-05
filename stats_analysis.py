@@ -13,15 +13,15 @@ ms_data['visit_date'] = pd.to_datetime(ms_data['visit_date'])
 
 # 1. Analyze walking speed
 ## building multiple regression model
-#model_walking_speed = smf.mixedlm(
-    #"walking_speed ~ education_level + age",  
-    #data=ms_data,
-    #groups=ms_data["patient_id"]  
-#)
-#result = model_walking_speed.fit()
+model = smf.ols(
+    "walking_speed ~ education_level + age",  
+    data=ms_data,
+    groups=ms_data["patient_id"]  
+)
+result = model.fit()
 
 ## printing summary
-#print(result.summary())
+print(result.summary())
 
 
 # 2. Analyze costs
