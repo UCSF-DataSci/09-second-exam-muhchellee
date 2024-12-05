@@ -5,7 +5,7 @@ python3 generate_dirty_data.py
 
 # step 2: cleaning dirty data
 # remove comment lines, empty lines, and empty commas; extract essential columns 
-grep -v '^#' ms_data_dirty.csv | sed '/^$/d' > ms_data.csv
+grep -v '^#' ms_data_dirty.csv | sed '/^$/d' | sed -e 's/, ,/,/g' | cut -d ',' -f1,2,4,5,6 > ms_data.csv
 
 # step 3: creating insurance file
 echo -e "insurance_type\nBronze\nSilver\nGold" > insurance.lst
