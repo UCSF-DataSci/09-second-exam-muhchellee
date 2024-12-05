@@ -55,3 +55,7 @@ print(mean_costs_by_insurance)
 
 print("\nCorrelation between age and walking speed:")
 print(f"{age_walking_corr:.2f}")
+
+
+## saving cleaned ms_data
+ms_data.to_csv("ms_data_clean.csv", index=False)
